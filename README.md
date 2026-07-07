@@ -11,6 +11,9 @@ A production-style data engineering pipeline that extracts sales and reference d
 Google Sheets (15 sheets) → Python Extraction Scripts → PostgreSQL (Raw → Staging)
 
 ## Project Structure
+## Architecture
+
+```
 ┌─────────────────────────────────────────────────────┐
 │                   DATA SOURCES                       │
 │                                                      │
@@ -27,3 +30,4 @@ Google Sheets (15 sheets) → Python Extraction Scripts → PostgreSQL (Raw → 
 ┌─────────────────────────────────────────────────────┐
 │               EXTRACTION LAYER                       │
 ...and so on
+```
