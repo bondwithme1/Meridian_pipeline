@@ -8,6 +8,9 @@ from datetime import datetime
 import logging #help to track what is going on in the pipeline
 import gspread
 from psycopg2.extras import execute_values
+from dotenv import load_dotenv
+import os
+
 
 
  ###--- Logging setup ---
@@ -47,12 +50,14 @@ SHEET_TABLE_MAP = [
     },
 ]
 
+load_dotenv()
+
 DB_CONFIG = {
-    "host":     "localhost",
-    "port":     5432,
-    "dbname":   "MeridianMart_DB",
-    "user":     "postgres",
-    "password": "Matric2700"
+    "host":     os.getenv("DB_HOST"),
+    "port":     int(os.getenv("DB_PORT")),
+    "dbname":   os.getenv("DB_NAME"),
+    "user":     os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD")
 }
 
 # --- Extract from Google Sheets ---

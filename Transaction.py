@@ -3,6 +3,8 @@ import gspread
 import psycopg2
 from psycopg2.extras import execute_values
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
 # --- Logging setup ---
 logging.basicConfig(
@@ -45,12 +47,14 @@ STORE_CONFIG = [
 ]
 
 # --- DB Config ---
+load_dotenv()
+
 DB_CONFIG = {
-    "host":     "localhost",
-    "port":     5432,
-    "dbname":   "MeridianMart_DB",
-    "user":     "postgres",
-    "password": "Matric2700"
+    "host":     os.getenv("DB_HOST"),
+    "port":     int(os.getenv("DB_PORT")),
+    "dbname":   os.getenv("DB_NAME"),
+    "user":     os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD")
 }
 
 # --- Canonical column names ---
